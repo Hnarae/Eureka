@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: EUREKA-SERVER
+
+#Server Port
+server:
+    port: ${PORT:9020}
+
+#Eureka
+eureka:
+    instance: 
+        hostname: localhost
+    client:
+        service-url:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+        #본인 서비스를 eureka 서버에 등록할 것인지
+        register-with-eureka: false
+        #clinet 서비스가 eureka 서버로부터 서비스 리스트 정보를 local에 캐싱할지 여부
+        fetch-registry: false
